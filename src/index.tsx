@@ -5,9 +5,17 @@ import './index.css';
 const PeriodicTable = () => {
     let a = null;
     return (
-        <svg viewBox="0 0 2250 1504">
+        <svg viewBox="0 0 2358 1504">
             <Element group={1} period={1} name="Hydrogen" number={1} symbol="H" mass={1.008} state={2} type={5} />
+            <Element group={18} period={1} name="Helium" number={2} symbol="He" mass={4.003} state={2} type={7} />
             <Element group={1} period={2} name="Lithium" number={3} symbol="Li" mass={6.941} state={2} type={0} />
+            <Element group={2} period={2} name="Beryllium" number={4} symbol="Be" mass={9.012} state={2} type={1} />
+            <Element group={13} period={2} name="Boron" number={5} symbol="B" mass={9.012} state={2} type={4} />
+            <Element group={14} period={2} name="Carbon" number={6} symbol="C" mass={9.012} state={2} type={5} />
+            <Element group={15} period={2} name="Nitrogen" number={7} symbol="N" mass={9.012} state={2} type={5} />
+            <Element group={16} period={2} name="Oxygen" number={8} symbol="O" mass={9.012} state={2} type={5} />
+            <Element group={17} period={2} name="Fluorine" number={9} symbol="F" mass={9.012} state={2} type={6} />
+            <Element group={18} period={2} name="Neon" number={10} symbol="Ne" mass={9.012} state={2} type={7} />
         </svg>
     );
 };
@@ -38,11 +46,11 @@ const Element = ({ group, period, name, number, symbol, mass, state, type }: Ele
 
     const xPos = () => {
         if (group === 1) return startX;
-        return (group - 1) * 125 + 6 + startX;
+        return (group - 1) * 131 + startX;
     };
     const yPos = () => {
         if (period === 1) return startY;
-        return (period - 1) * 125 + 6 + startY;
+        return (period - 1) * 131 + startY;
     };
 
     const [x] = useState(xPos());
