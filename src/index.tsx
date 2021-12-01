@@ -6,26 +6,26 @@ const PeriodicTable = () => {
     let a = null;
     return (
         <svg viewBox="0 0 2358 1504">
-            <Element group={1} period={1} name="Hydrogen" number={1} symbol="H" mass={1.008} state={2} type={5} />
-            <Element group={18} period={1} name="Helium" number={2} symbol="He" mass={4.003} state={2} type={7} />
-            <Element group={1} period={2} name="Lithium" number={3} symbol="Li" mass={6.941} state={2} type={0} />
-            <Element group={2} period={2} name="Beryllium" number={4} symbol="Be" mass={9.012} state={2} type={1} />
-            <Element group={13} period={2} name="Boron" number={5} symbol="B" mass={9.012} state={2} type={4} />
-            <Element group={14} period={2} name="Carbon" number={6} symbol="C" mass={9.012} state={2} type={5} />
-            <Element group={15} period={2} name="Nitrogen" number={7} symbol="N" mass={9.012} state={2} type={5} />
-            <Element group={16} period={2} name="Oxygen" number={8} symbol="O" mass={9.012} state={2} type={5} />
-            <Element group={17} period={2} name="Fluorine" number={9} symbol="F" mass={9.012} state={2} type={6} />
-            <Element group={18} period={2} name="Neon" number={10} symbol="Ne" mass={9.012} state={2} type={7} />
+            <Element name="Hydrogen" symbol="H" number={1} mass={1.008} group={1} period={1} state={0} type={5} />
+            <Element name="Helium" symbol="He" number={2} mass={4.003} group={18} period={1} state={0} type={7} />
+            <Element name="Lithium" symbol="Li" number={3} mass={6.941} group={1} period={2} state={0} type={0} />
+            <Element name="Beryllium" symbol="Be" number={4} mass={9.012} group={2} period={2} state={0} type={1} />
+            <Element name="Boron" symbol="B" number={5} mass={10.811} group={13} period={2} state={0} type={4} />
+            <Element name="Carbon" symbol="C" number={6} mass={12.011} group={14} period={2} state={0} type={5} />
+            <Element name="Nitrogen" symbol="N" number={7} mass={14.007} group={15} period={2} state={0} type={5} />
+            <Element name="Oxygen" symbol="O" number={8} mass={15.999} group={16} period={2} state={0} type={5} />
+            <Element name="Fluorine" symbol="F" number={9} mass={18.998} group={17} period={2} state={0} type={6} />
+            <Element name="Neon" symbol="Ne" number={10} mass={20.18} group={18} period={2} state={0} type={7} />
         </svg>
     );
 };
 type ElementProps = {
+    name: string;
+    symbol: string; // element symbol
+    number: number; // atomic number
+    mass: number; // atomic mass
     group: number;
     period: number;
-    name: string;
-    number: number; // atomic number
-    symbol: string; // element symbol
-    mass: number; // atomic mass
     state: number; // 0 = solid, 1 = liquid, 2 = gas
     type: number;
     /* 0 = alkali metal
