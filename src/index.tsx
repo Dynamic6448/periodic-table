@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -36,14 +36,17 @@ const Element = ({ group, period, name, number, symbol, mass, state, type }: Ele
     const startX = 3;
     const startY = 3;
 
-    const x = () => {
+    const xPos = () => {
         if (group === 1) return startX;
         return (group - 1) * 125 + 6 + startX;
     };
-    const y = () => {
+    const yPos = () => {
         if (period === 1) return startY;
         return (period - 1) * 125 + 6 + startY;
     };
+
+    const [x] = useState(xPos());
+    const [y] = useState(yPos());
 
     const fill = () => {
         switch (type) {
@@ -99,7 +102,22 @@ const Element = ({ group, period, name, number, symbol, mass, state, type }: Ele
     };
     return (
         <g>
-            <rect x={x()} y={y()} width={125} height={125} fill={fill()} stroke={stroke()} strokeWidth={6} />
+            <rect x={x} y={y} width={125} height={125} fill={fill()} stroke={stroke()} strokeWidth={6} />
+
+            <g textAnchor="middle">
+                <text x={x + 62} y={y + 25} fontSize={20}>
+                    {number}
+                </text>
+                <text x={x + 62} y={y + 60} fontSize={30}>
+                    {symbol}
+                </text>
+                <text x={x + 62} y={y + 88} fontSize={25}>
+                    {name}
+                </text>
+                <text x={x + 62} y={y + 115} fontSize={22}>
+                    {mass}
+                </text>
+            </g>
         </g>
     );
 };
